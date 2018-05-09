@@ -1,0 +1,6 @@
+framework module Pods_LyricAppUITests {
+  umbrella header "Pods-LyricAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

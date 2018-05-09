@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,146 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LyricApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MVH-gC-l6g">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Xf-Pb-eCa">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" id="IOG-sb-fkM" customClass="SearchTableViewCell" customModule="LyricApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IOG-sb-fkM" id="JLg-ny-2Ux">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="WzZ-nH-0vI" kind="presentation" identifier="Detail" id="W4U-eI-bqy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-OZ-0Nm">
+                                <rect key="frame" x="0.0" y="76" width="375" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3dm-sw-frM">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="QYg-Ek-yg3">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9iK-OZ-0Nm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3zO-OO-ZeC"/>
+                            <constraint firstItem="MVH-gC-l6g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5ez-dU-Ibn"/>
+                            <constraint firstItem="3Xf-Pb-eCa" firstAttribute="top" secondItem="9iK-OZ-0Nm" secondAttribute="bottom" id="Jfg-Cx-yJy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Xf-Pb-eCa" secondAttribute="bottom" id="aKz-YE-Oc9"/>
+                            <constraint firstItem="9iK-OZ-0Nm" firstAttribute="top" secondItem="MVH-gC-l6g" secondAttribute="bottom" id="cEz-7a-d8j"/>
+                            <constraint firstItem="MVH-gC-l6g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kXV-bk-DVJ"/>
+                            <constraint firstItem="3Xf-Pb-eCa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kbf-kO-KCr"/>
+                            <constraint firstItem="MVH-gC-l6g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lQp-Uc-twx"/>
+                            <constraint firstItem="3Xf-Pb-eCa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rwJ-fQ-2EN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9iK-OZ-0Nm" secondAttribute="trailing" id="yFp-yQ-cAL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="MVH-gC-l6g" id="hF1-LP-6A0"/>
+                        <outlet property="trackTableview" destination="3Xf-Pb-eCa" id="fZu-Go-gt0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="317.60000000000002" y="158.77061469265368"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="TfX-1Z-aQH">
+            <objects>
+                <viewController id="Tar-8v-Ot1" customClass="DetailViewController" customModule="LyricApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1uB-5f-eLa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2X-2A-wTr">
+                                <rect key="frame" x="16" y="205" width="343" height="462"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jji-Wb-DuQ">
+                                <rect key="frame" x="0.0" y="84" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mxy-dR-CXK" firstAttribute="trailing" secondItem="jji-Wb-DuQ" secondAttribute="trailing" id="34t-Go-z0c"/>
+                            <constraint firstItem="z2X-2A-wTr" firstAttribute="leading" secondItem="Mxy-dR-CXK" secondAttribute="leading" constant="16" id="GVy-im-WsN"/>
+                            <constraint firstItem="z2X-2A-wTr" firstAttribute="top" secondItem="jji-Wb-DuQ" secondAttribute="bottom" constant="100" id="Ity-S3-eze"/>
+                            <constraint firstItem="Mxy-dR-CXK" firstAttribute="trailing" secondItem="z2X-2A-wTr" secondAttribute="trailing" constant="16" id="Rmg-Qw-1wf"/>
+                            <constraint firstItem="jji-Wb-DuQ" firstAttribute="leading" secondItem="Mxy-dR-CXK" secondAttribute="leading" id="bKF-7R-yQy"/>
+                            <constraint firstItem="jji-Wb-DuQ" firstAttribute="top" secondItem="Mxy-dR-CXK" secondAttribute="top" constant="20" id="e2f-iO-snW"/>
+                            <constraint firstItem="Mxy-dR-CXK" firstAttribute="bottom" secondItem="z2X-2A-wTr" secondAttribute="bottom" id="eEH-hT-2ar"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mxy-dR-CXK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VaT-Fj-Mdw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="G3W-1B-icm">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="Tar-8v-Ot1" id="bCe-Iw-Qj3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="G3W-1B-icm" id="RXK-AN-OyY"/>
+                        <outlet property="lyricsTextView" destination="z2X-2A-wTr" id="reX-Sr-aQz"/>
+                        <outlet property="songNameLabel" destination="jji-Wb-DuQ" id="a1E-Mu-od7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NQA-hC-Kwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2042" y="159"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qLD-PY-et4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WzZ-nH-0vI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cvv-R5-dpR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tar-8v-Ot1" kind="relationship" relationship="rootViewController" id="hU5-Za-v8y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Mr-SA-GV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134.4000000000001" y="184.40779610194903"/>
         </scene>
     </scenes>
 </document>
